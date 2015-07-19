@@ -1,0 +1,92 @@
+﻿body{
+	text-align:left;
+	margin:0;
+	padding:0;
+}
+
+.yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd {
+    border: 1px solid #808080;
+    background-color: #ffffff;
+}
+
+#divCenter{
+    width:100%;
+	height:100%;
+}
+
+.imgBtnDelete {
+	width: 16px;
+	height: 16px;
+	float: left;
+	cursor: pointer;
+}
+
+.yui-button#addnewrow button {
+	padding-left: 2em;
+	background: url(add.png) 5% 50% no-repeat;
+}
+
+.yui-button#createtable button {
+	padding-left: 2em;
+	background: url(addt.gif) 5% 50% no-repeat;
+}
+
+.yui-button#savenewrecord button {
+	padding-left: 2em;
+	background: url(insert.png) 5% 50% no-repeat;
+}
+
+.table-name {
+	padding: 10px;
+}
+
+.yui-skin-sam .yui-dt caption {
+	font-size: 100%;
+	font-style: normal;
+	text-align: left;
+	padding: 10px;
+	border: 1px solid #99F;
+	background-color: #DDF;
+}
+
+#schema-master { width:250px; 
+	position:relative; 
+	padding:1px; 
+	margin-top:0; 
+}
+
+.icon-table { 
+	display:block; 
+	height: 19px; 
+	padding-left: 30px; 
+	float: left;
+	background: transparent url(table.png) 0 0 no-repeat; 
+	cursor: pointer;
+}
+
+.icon-index { 
+	display:block; 
+	height: 22px; 
+	padding-left: 30px; 
+	float: left;
+	background: transparent url(index.png) 0 0 no-repeat; 
+	cursor: pointer;
+}
+
+.icon-trigger { 
+	display:block; 
+	height: 24px; 
+	padding-left: 30px; 
+	float: left;
+	background: transparent url(gun.png) 0 0 no-repeat; 
+	cursor: pointer;
+}
+
+.icon-view { 
+	display:block; 
+	height: 22px; 
+	padding-left: 30px; 
+	float: left;
+	background: transparent url(view2.png) 0 0 no-repeat; 
+	cursor: pointer;
+}
