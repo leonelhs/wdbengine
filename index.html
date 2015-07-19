@@ -58,7 +58,7 @@ var oCurrentTextNode = null;
 var oTreeView;
 var tabView = null;
   
-var database = new SQL.Database();       
+var database = null;      
 
 YAHOO.widget.Tab.prototype.querytext = "";
 		
@@ -100,8 +100,6 @@ YAHOO.util.Event.onDOMReady(function () {
 		layout.getUnitByPosition('left').on('close', function() {
 			closeLeft();
         });
-		infoWdbengine();
-		schemaMaster();
 		initContextMenu();	
 	});
 	
@@ -131,16 +129,21 @@ function openDB() {
 function openNewDatabase(){
     
     tabView.get('activeTab').clearContent();
+    var info = document.createElement("p");
+    info.innerHTML = "Upload a file database from file or create an empty data base:";
     
     var container = tabView.get('activeTab').get('contentEl');
+    container.appendChild(info);
+    
     var inputdbfile = document.createElement("input");
     inputdbfile.setAttribute("type", "file");
     container.appendChild(inputdbfile);
     
     inputdbfile.onchange = function() {
         
-        if(confirm("Would you like to save the current data base?"))
-            saveDatabase();
+        if(database)
+            if(!confirm("Current data base will be erased!"))
+                return;
         
         var f = inputdbfile.files[0];
         var r = new FileReader();
@@ -152,6 +155,27 @@ function openNewDatabase(){
         }
         r.readAsArrayBuffer(f);
     }
+    
+    var emptydbfile = document.createElement("input");
+    var br = document.createElement("br");
+    emptydbfile.setAttribute("type", "button");
+    emptydbfile.setAttribute("value", "Create database");
+    
+    container.appendChild(br);
+    container.appendChild(emptydbfile);
+    
+    emptydbfile.onclick = function(){
+        
+        if(database)
+            if(!confirm("Current data base will be erased!"))
+                return;
+        
+        database = new SQL.Database();
+        console.log(database);
+        infoWdbengine();
+        tabView.get('activeTab').clearContent();
+        schemaMaster();
+    };
 };   
     
 function saveDatabase () {
